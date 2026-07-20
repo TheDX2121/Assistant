@@ -4,53 +4,47 @@ from database.mongo import db
 emergencies = db.emergencies
 
 
-async def create_emergency(data: dict):
-    """
-    Create a new emergency request.
-    """
 
-    await emergencies.insert_one(data)
-
-
-async def get_emergency(
-    emergency_id: str
+async def create_emergency(
+    data
 ):
 
-    return await emergencies.find_one(
-        {
-            "emergency_id": emergency_id
-        }
+    await emergencies.insert_one(
+        data
     )
+
 
 
 async def update_emergency(
-    emergency_id: str,
-    data: dict
+    emergency_id,
+    data
 ):
 
     await emergencies.update_one(
+
         {
-            "emergency_id": emergency_id
+            "emergency_id":
+                emergency_id
         },
 
         {
-            "$set": data
+            "$set":
+                data
         }
     )
 
 
-async def get_user_emergencies(
-    user_id: int
-):
+
+async def get_emergencies():
 
     result = []
 
-    async for item in emergencies.find(
-        {
-            "user_id": user_id
-        }
-    ):
 
-        result.append(item)
+    async for item in emergencies.find():
+
+        result.append(
+            item
+        )
+
 
     return result
