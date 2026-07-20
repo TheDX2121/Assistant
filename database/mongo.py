@@ -4,19 +4,29 @@ from config import config
 
 
 client = AsyncIOMotorClient(
-    config.MONGO_URI
+    config.DATABASE_URL
 )
 
-
-db = client[
+database = client[
     config.DATABASE_NAME
 ]
 
 
-async def ping_database():
+# Main database object
+db = database
 
-    await client.admin.command(
-        "ping"
-    )
 
-    return True
+async def check_database():
+    """
+    Check MongoDB connection.
+    """
+
+    try:
+        await client.admin.command(
+            "ping"
+        )
+
+        return True
+
+    except Exception:
+        return False
