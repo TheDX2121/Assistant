@@ -6,14 +6,14 @@ class Config:
     API_ID = int(
         os.getenv(
             "API_ID",
-            "0"
+            "29296297"
         )
     )
 
 
     API_HASH = os.getenv(
         "API_HASH",
-        ""
+        "477a9529cfd84f4088539c6ab94351fc"
     )
 
 
@@ -26,7 +26,7 @@ class Config:
     OWNER_ID = int(
         os.getenv(
             "OWNER_ID",
-            "0"
+            "5094080507"
         )
     )
 
@@ -44,7 +44,7 @@ class Config:
 
     MONGO_URI = os.getenv(
         "MONGO_URI",
-        ""
+        "mongodb+srv://Raman:RamanOp@cluster0.faapcwf.mongodb.net/"
     )
 
 
