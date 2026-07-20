@@ -6,7 +6,7 @@ logs = db.logs
 
 
 async def add_log(
-    data: dict
+    data
 ):
 
     await logs.insert_one(
@@ -16,23 +16,20 @@ async def add_log(
 
 
 async def get_logs(
-    limit: int = 50
+    limit=20
 ):
 
     result = []
 
-    async for log in logs.find().sort(
-        "time",
+
+    async for item in logs.find().sort(
+        "_id",
         -1
     ).limit(limit):
 
-        result.append(log)
+        result.append(
+            item
+        )
 
 
     return result
-
-
-
-async def clear_logs():
-
-    await logs.delete_many({})
