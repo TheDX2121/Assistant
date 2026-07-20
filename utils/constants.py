@@ -1,0 +1,41 @@
+from version import VERSION
+
+
+BOT_EMOJI = "🤖"
+
+OWNER_NAME = "𝚂𝚊𝚖𝚞𝚎𝚕~"
+
+
+DATE_FORMAT = "%d %b %Y"
+
+TIME_FORMAT = "%I:%M %p"
+
+
+DEFAULT_TIMEZONE = "Asia/Kolkata"
+
+
+APPOINTMENT_PREFIX = "APT"
+
+TICKET_PREFIX = "TKT"
+
+EMERGENCY_PREFIX = "EMG"
+
+VIP_PREFIX = "VIP"
+
+PAYMENT_PREFIX = "PAY"
+
+LOG_PREFIX = "LOG"
+
+
+BOT_VERSION = VERSION
+
+
+STATUS_PENDING = "pending"
+
+STATUS_ACCEPTED = "accepted"
+
+STATUS_REJECTED = "rejected"
+
+STATUS_COMPLETED = "completed"
+
+STATUS_CANCELLED = "cancelled"
