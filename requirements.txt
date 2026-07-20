@@ -1,43 +1,8 @@
-# Telegram Bot Framework
-pyrofork==2.3.68
-tgcrypto==1.2.5
-
-# MongoDB
-motor==3.7.1
-pymongo==4.13.2
-
-# Environment Variables
-python-dotenv==1.1.1
-
-# Scheduler
-APScheduler==3.11.0
-
-# Timezone
-pytz==2025.2
-
-# HTTP Requests
-aiohttp==3.12.14
-
-# Image Processing
-Pillow==11.3.0
-
-# PDF Export
-reportlab==4.4.3
-
-# Excel Export
-openpyxl==3.1.5
-
-# Logging
-colorlog==6.9.0
-
-# Utilities
-python-dateutil==2.9.0.post0
-
-# Async File Handling
-aiofiles==24.1.0
-
-# QR Code Generator (UPI Payments)
-qrcode==8.2
-
-# Cryptography
-cryptography==45.0.5
+pyrogram
+tgcrypto
+motor
+pymongo
+apscheduler
+pytz
+colorlog
+python-dotenv
