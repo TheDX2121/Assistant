@@ -1,48 +1,68 @@
-import asyncio
-
 from pyrogram import Client
 
 from config import config
-from version import get_info
 
+from plugins.register import load_plugins
 
-bot = Client(
-    "ManagerBot",
-    api_id=config.API_ID,
-    api_hash=config.API_HASH,
-    bot_token=config.BOT_TOKEN
+from scheduler.task_manager import (
+    start_all_tasks
+)
+
+from utils.startup import (
+    startup_message
 )
 
 
-async def startup():
-    info = get_info()
 
-    print(
-        f"""
-🤖 {info['name']}
+app = Client(
 
-Version:
-{info['version']}
+    "PersonalAssistant",
 
-Owner:
-{config.OWNER_NAME}
+    api_id=config.API_ID,
 
-Status:
-Starting...
-"""
-    )
+    api_hash=config.API_HASH,
+
+    bot_token=config.BOT_TOKEN
+
+)
+
+
+
+load_plugins(
+    app
+)
+
+
+
+@app.on_message()
+async def startup(
+    client,
+    message
+):
+
+    pass
+
 
 
 async def main():
-    await startup()
 
-    async with bot:
-        print(
-            "✅ Bot Started Successfully"
-        )
+    await app.start()
 
-        await asyncio.Event().wait()
+
+    start_all_tasks(
+        app
+    )
+
+
+    print(
+        await startup_message()
+    )
+
+
+    await idle()
+
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+
+    app.run()
